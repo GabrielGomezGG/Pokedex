@@ -1,6 +1,6 @@
-package com.example.pokedex
+package com.example.pokedex.data
 
-import com.example.pokedex.Pokedex
+import com.example.pokedex.data.Pokedex
 import retrofit2.Response
 import retrofit2.http.GET
 

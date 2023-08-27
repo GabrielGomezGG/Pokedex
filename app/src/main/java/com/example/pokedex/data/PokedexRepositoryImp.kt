@@ -1,4 +1,4 @@
-package com.example.pokedex
+package com.example.pokedex.data
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

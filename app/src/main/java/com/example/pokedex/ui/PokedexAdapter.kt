@@ -1,9 +1,13 @@
-package com.example.pokedex
+package com.example.pokedex.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pokedex.R
+import com.example.pokedex.data.PokedexResults
 import com.example.pokedex.databinding.ItemPokedexBinding
+import com.example.pokedex.utils.ImageBuilder
+import com.example.pokedex.utils.StringFormatter
 import com.squareup.picasso.Picasso
 
 class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() {

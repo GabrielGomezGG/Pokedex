@@ -1,4 +1,4 @@
-package com.example.pokedex
+package com.example.pokedex.utils
 
 import java.util.*
 
