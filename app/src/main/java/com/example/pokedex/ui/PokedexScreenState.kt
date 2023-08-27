@@ -1,6 +1,6 @@
 package com.example.pokedex.ui
 
-import com.example.pokedex.data.Pokedex
+import com.example.pokedex.data.api.models.Pokedex
 
 sealed class PokedexScreenState {
     object Loading : PokedexScreenState()

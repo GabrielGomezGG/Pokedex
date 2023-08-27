@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pokedex.data.Pokedex
+import com.example.pokedex.data.api.models.Pokedex
 import com.example.pokedex.databinding.ActivityMainBinding
 import com.example.pokedex.ui.PokedexAdapter
 import com.example.pokedex.ui.PokedexScreenState

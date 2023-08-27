@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pokedex.data.Pokedex
+import com.example.pokedex.data.api.models.Pokedex
 import com.example.pokedex.data.PokedexRepository
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
