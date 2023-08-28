@@ -1,72 +1,36 @@
 package com.example.pokedex
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pokedex.data.api.models.Pokedex
-import com.example.pokedex.databinding.ActivityMainBinding
-import com.example.pokedex.ui.PokedexAdapter
-import com.example.pokedex.ui.PokedexScreenState
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
 import com.example.pokedex.ui.PokedexViewModel
-import com.example.pokedex.ui.PokedexViewModelFactory
-import kotlinx.coroutines.launch
+import com.example.pokedex.ui.theme.PokedexTheme
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
 
-    private lateinit var pokedexAdapter: PokedexAdapter
-    private lateinit var viewModel: PokedexViewModel
-    private lateinit var binding: ActivityMainBinding
+@AndroidEntryPoint
+class MainActivity : ComponentActivity() {
+
+    private val pokedexViewModel: PokedexViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setupRecyclerView()
-
-        // Listen to Retrofit response
-        viewModel = ViewModelProvider(this, PokedexViewModelFactory())[PokedexViewModel::class.java]
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.screenState.collect {
-                    when (it) {
-                        PokedexScreenState.Loading -> showLoading()
-                        PokedexScreenState.Error -> handlerError()
-                        is PokedexScreenState.ShowPokedex -> showPokedex(it.pokedex)
-                    }
+        setContent {
+            PokedexTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Text(text = "titi")
                 }
             }
         }
-    }
-
-    private fun setupRecyclerView() {
-        pokedexAdapter = PokedexAdapter()
-
-        val gridLayoutManager = GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false)
-        with(binding.rvPokedex) {
-            this.layoutManager = gridLayoutManager
-            this.setHasFixedSize(true)
-            this.adapter = pokedexAdapter
-        }
-    }
-
-    private fun showPokedex(pokedex: Pokedex) {
-        binding.pokedexProgressBar.visibility = View.GONE
-        pokedexAdapter.updatePokedex(pokedex.results)
-    }
-
-    private fun handlerError() {
-        Toast.makeText(this, "Error buscando la informacion", Toast.LENGTH_LONG).show()
-    }
-
-    private fun showLoading() {
-        binding.pokedexProgressBar.visibility = View.VISIBLE
     }
 }
