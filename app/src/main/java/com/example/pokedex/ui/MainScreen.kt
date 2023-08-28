@@ -1,5 +1,6 @@
 package com.example.pokedex.ui
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.pokedex.data.models.Pokemon
 
 @Composable
@@ -60,14 +62,17 @@ fun MainScreen(pokedexViewModel: PokedexViewModel) {
 fun PokemonCard(pokemon : Pokemon) {
     Card {
         Column(Modifier.padding(8.dp)) {
-
-            Text(
-                text = pokemon.name,
-                Modifier
-                    .fillMaxWidth(),
-                fontSize = 12.sp,
-                textAlign = TextAlign.Center
-            )
+            Column {
+        Log.i("titi", pokemon.url)
+//                AsyncImage(model = pokemon.url, contentDescription = pokemon.name)
+//                Text(
+//                    text = pokemon.name,
+//                    Modifier
+//                        .fillMaxWidth(),
+//                    fontSize = 12.sp,
+//                    textAlign = TextAlign.Center
+//                )
+            }
         }
     }
 }
