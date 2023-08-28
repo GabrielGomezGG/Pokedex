@@ -34,35 +34,4 @@ class PokedexViewModel @Inject constructor(
                 .collect{ _pokedex.value = PokedexUiState.Success(it)}
         }
     }
-
-//    val pokedex = MutableLiveData<Pokedex>()
-//
-//    private val _screenState: MutableStateFlow<PokedexScreenState> = MutableStateFlow(
-//        PokedexScreenState.Loading)
-//    val screenState: Flow<PokedexScreenState> = _screenState
-//
-//    private val coroutineExceptionHandler =
-//        CoroutineExceptionHandler { coroutineContext, throwable ->
-//            Log.d("PokedexViewModel", "Error retrieving pokedex: ${throwable.message}")
-//        }
-//
-//    init {
-//        viewModelScope.launch(coroutineExceptionHandler) {
-//            kotlin.runCatching {
-//                pokedexRepository.getPokedex()
-//            }.onSuccess {
-//                if (it.body() != null) {
-//                    pokedex.postValue(it.body()!!)
-//                    _screenState.value = PokedexScreenState.ShowPokedex(it.body()!!)
-//                } else {
-//                    _screenState.value = PokedexScreenState.Error
-//                }
-//            }.onFailure {
-//                Log.d("PokedexViewModel", "Error retrieving pokedex: ${it.message}")
-//                _screenState.value = PokedexScreenState.Error
-//            }
-//
-//        }
-//    }
-
 }
