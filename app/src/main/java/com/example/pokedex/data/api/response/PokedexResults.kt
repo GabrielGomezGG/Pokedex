@@ -1,4 +1,4 @@
-package com.example.pokedex.data.api.models
+package com.example.pokedex.data.api.response
 
 import com.google.gson.annotations.SerializedName
 

@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
+import com.example.pokedex.ui.MainScreen
 import com.example.pokedex.ui.PokedexViewModel
 import com.example.pokedex.ui.theme.PokedexTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Text(text = "titi")
+                    MainScreen(pokedexViewModel)
                 }
             }
         }
